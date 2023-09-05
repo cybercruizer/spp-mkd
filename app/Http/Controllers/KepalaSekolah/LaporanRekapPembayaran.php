@@ -34,6 +34,11 @@ class LaporanRekapPembayaran extends Controller
             $siswa->where('jurusan', $request->jurusan);
             $data['subtitle'] = $data['subtitle'] . '| <span class="badge rounded-pill bg-warning">Jurusan: ' . $request->jurusan . '</span>';
         }
+        if ($request->filled('rombel')) {
+            $siswa->where('rombel', $request->rombel);
+            $data['subtitle'] = $data['subtitle'] . '| <span class="badge rounded-pill bg-warning">Rombel: ' . $request->rombel . '</span>';
+        }
+        
         $siswa = $siswa->get();
         foreach ($siswa as $itemSiswa) {
             // setiap siswa, ambil data tagihan selama 1 tahun, kalau sudah dihapus ulang. utk perulangan siswa lain nya

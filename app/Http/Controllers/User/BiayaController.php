@@ -90,7 +90,7 @@ class BiayaController extends Controller
             ]);
         } else {
             $request->validate([
-                'jumlah' => 'required|numeric|min:1000|max:999999',
+                'jumlah' => 'required|numeric|min:1000|max:9999999',
             ]);
         }
 

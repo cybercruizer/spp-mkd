@@ -13,7 +13,7 @@
         }
 
         .invoice-box {
-            background-color: #93c5fd;
+            background-color: #ffffff;
             max-width: 700px;
             margin: auto;
             padding: 30px;
@@ -148,7 +148,7 @@
             }
 
             .invoice-box {
-                background-color: #93c5fd !important;
+                background-color: #ffffff !important;
                 -webkit-print-color-adjust: exact;
             }
         }
@@ -166,13 +166,13 @@
                         <tr>
                             <td>
                                 Tagihan Untuk : {{ $tagihan->siswa->nama }} ({{ $tagihan->siswa->nisn }})<br />
-                                Kelas : {{ $tagihan->siswa->kelas }}<br />
-                                Jurusan : {{ $tagihan->siswa->jurusan }}
+                                Kelas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ $tagihan->siswa->kelas }} {{ $tagihan->siswa->rombel }}<br />
+                                Jurusan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ $tagihan->siswa->jurusan }}
                             </td>
 
                             <td>
-                                <div>Nomor Invoice : #{{ $tagihan->id }}</div>
-                                <div>Tanggal Tagihan :
+                                <div>Nomor Invoice       : #{{ $tagihan->id }}</div>
+                                <div>Tanggal Tagihan     :
                                     {{ $tagihan->tanggal_tagihan->translatedFormat('d F Y') }}</div>
                                 <div>Tanggal Jatuh Tempo :
                                     {{ $tagihan->tanggal_jatuh_tempo->translatedFormat('d F Y') }}</div>
@@ -204,7 +204,7 @@
                 <td colspan="3">
                     <div>
                         Terbilang: <i>
-                            {{ ucwords(terbilang($tagihan->total_tagihan)) }}
+                            {{ ucwords(terbilang($tagihan->total_tagihan)) }} Rupiah
                         </i>
                     </div>
                     <hr>
@@ -212,7 +212,7 @@
             </tr>
             <tr>
                 <td colspan="3">
-                    Jambi, {{ $tagihan->tanggal_tagihan->translatedFormat('d, F Y') }} <br>
+                    Magelang, {{ $tagihan->tanggal_tagihan->translatedFormat('d F Y') }} <br>
                     @include('components.informasi_pj')
                 </td>
             </tr>

@@ -39,7 +39,13 @@ class LoginController extends Controller
     {
         if ($user->akses == 'kepala_sekolah') {
             return redirect()->route('kepala_sekolah.beranda');
-        } else if ($user->akses == 'operator') {
+        } else if ($user->akses == 'admin') {
+            activity()->causedBy(Auth::user())
+                ->event('login')
+                ->log('user admin ' . auth()->user()->name . ' melakukan login');
+            return redirect()->route('kepala_sekolah.beranda');
+        } 
+        else if ($user->akses == 'operator') {
             activity()->causedBy(Auth::user())
                 ->event('login')
                 ->log('user operator ' . auth()->user()->name . ' melakukan login');

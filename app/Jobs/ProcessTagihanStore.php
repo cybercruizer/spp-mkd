@@ -40,6 +40,7 @@ class ProcessTagihanStore implements ShouldQueue
     public function handle()
     {
         $requestData = $this->requestData;
+        
         $siswa = Siswa::currentStatus('aktif');
         $requestData['status'] = 'baru';
         $tanggalTagihan = Carbon::parse($requestData['tanggal_tagihan']);
@@ -70,10 +71,23 @@ class ProcessTagihanStore implements ShouldQueue
                 }
                 $biaya = $itemSiswa->biaya->children;
                 foreach ($biaya as $itemBiaya) {
+                    switch($itemSiswa->kategori) {
+                        case('REG'):
+                            $jumlahBiaya=$itemBiaya->jumlah;
+                            break;
+                        case('AP50'):
+                            $jumlahBiaya=$itemBiaya->jumlah*(50/100);
+                            //$jumlahBiaya=$jumlah*(50/100);
+                            break;
+                        case('AP100'):
+                            $jumlahBiaya=0;
+                            //$jumlahBiaya=$jumlah*(50/100);
+                            break;
+                    }
                     TagihanDetail::create([
                         'tagihan_id' => $tagihan->id,
                         'nama_biaya' => $itemBiaya->nama,
-                        'jumlah_biaya' => $itemBiaya->jumlah,
+                        'jumlah_biaya' => $jumlahBiaya,
                     ]);
                 }
             }

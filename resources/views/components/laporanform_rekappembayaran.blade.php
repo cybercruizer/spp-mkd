@@ -19,8 +19,15 @@
         ]) !!}
     </div>
     <div class="col-md-2 col-sm-12 mb-1 mb-md-0">
+        <label for="rombel" class="form-label">Rombel</label>
+        {!! Form::select('rombel', getNamaRombel(), request('status'), [
+            'class' => 'form-select',
+            'placeholder' => 'Pilih Rombel',
+        ]) !!}
+    </div>
+    <div class="col-md-2 col-sm-12 mb-1 mb-md-0">
         <label for="tahun" class="form-label">Tahun Ajaran</label>
-        {!! Form::select('tahun', getRangeTahun(), request('tahun') ?? date('Y') - 1, [
+        {!! Form::select('tahun', getRangeTahun(), request('tahun') ?? date('Y'), [
             'class' => 'form-select',
         ]) !!}
     </div>

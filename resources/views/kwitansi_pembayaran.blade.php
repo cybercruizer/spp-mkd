@@ -13,12 +13,12 @@
         }
 
         .invoice-box {
-            background-color: #93c5fd;
+            background-color: #ffffff;
             max-width: 800px;
             margin: auto;
             padding: 30px;
             border: 1px solid #eee;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+            /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
             font-size: 16px;
             line-height: 24px;
             font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
@@ -150,7 +150,7 @@
             }
 
             .invoice-box {
-                background-color: #93c5fd !important;
+                background-color: #ffffff !important;
                 -webkit-print-color-adjust: exact;
             }
         }
@@ -160,6 +160,7 @@
 <body>
     <div class="invoice-box">
         <table cellpadding="0" cellspacing="0">
+            @include('components.header_invoice_kartu')
             <tr>
                 <td width="25%">No.</td>
                 <td>: #{{ $pembayaran->id }}</td>
@@ -169,10 +170,10 @@
                 <td>: {{ $pembayaran->tagihan->siswa->nama }}</td>
             </tr>
             <tr>
-                <td>Uang Sejumlah</td>
+                <td>Uang sejumlah</td>
                 <td>
                     <i>
-                        : {{ ucwords(terbilang($pembayaran->jumlah_dibayar)) }} RUPIAH
+                        : {{ ucwords(terbilang($pembayaran->jumlah_dibayar)) }} Rupiah
                     </i>
                 </td>
             </tr>
@@ -197,12 +198,12 @@
                     <table>
                         <tr>
                             <td colspan="2" style="vertical-align: bottom">
-                                <div style="background-color: #eee; width: 100px; padding:10px;font-weight:bold;">
+                                <div style="background-color: #eee; width: 100px; padding:10px;font-weight:bold; text-align:center">
                                     {{ formatRupiah($pembayaran->jumlah_dibayar) }}
                                 </div>
                             </td>
                             <td style="text-align: right;">
-                                Jambi, {{ $pembayaran->tanggal_bayar->translatedFormat('d, F Y') }} <br>
+                                Magelang, {{ $pembayaran->tanggal_bayar->translatedFormat('d F Y') }} <br>
                                 @include('components.informasi_pj')
                             </td>
                         </tr>

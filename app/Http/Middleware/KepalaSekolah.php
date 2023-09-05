@@ -16,9 +16,9 @@ class KepalaSekolah
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user()->akses == 'kepala_sekolah') {
+        if ($request->user()->akses == 'kepala_sekolah' || $request->user()->akses == 'admin') {
             return $next($request);
         }
-        abort(403, 'Akses khusus kepala sekolah');
+        abort(403, 'Akses khusus kepala sekolah dan Admin');
     }
 }

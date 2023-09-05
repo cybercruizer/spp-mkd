@@ -39,7 +39,7 @@ class SiswaController extends Controller
      */
     public function index(Request $request, SiswaKelasChart $siswaKelasChart)
     {
-        $models = Model::with('wali', 'user')->latest();
+        $models = Model::with('wali', 'user','biaya')->latest();
         if ($request->filled('q')) {
             $models = $models->search($request->q);
         }

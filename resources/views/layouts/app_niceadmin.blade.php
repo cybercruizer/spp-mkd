@@ -166,7 +166,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <a href="{{ route(auth()->user()->akses . '.beranda') }}" class="logo d-flex align-items-center">
                 <img src="{{ \Storage::url(settings()->get('app_logo')) }}" alt="">
-                <span class="d-none d-lg-block">SMK PURNAMA 1</span>
+                <span class="d-none d-lg-block">SPP-MKD</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -268,7 +268,7 @@
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
                         data-bs-toggle="dropdown">
-                        <img src="{{ \Storage::url('images/user.png') }}" alt="Profile" class="rounded-circle">
+                        <img src="{{ asset('images/nouser.png')}}" alt="Profile" class="rounded-circle">
                         <span class="d-none d-md-block dropdown-toggle ps-2">{{ auth()->user()->name }}</span>
                     </a><!-- End Profile Iamge Icon -->
 
@@ -360,7 +360,7 @@
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            &copy; 2022, Made By Zepi Darmawan T
+            &copy; <a href="smkmuhmungkid.sch.id">TKJ SMK Muh Mungkid</a>
         </div>
         <div class="credits">
             Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> & <a href="#">NiceAdmin</a>

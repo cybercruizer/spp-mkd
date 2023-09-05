@@ -44,7 +44,7 @@
                             <thead class="{{ config('app.thead_style') }}">
                                 <tr>
                                     <th width="1%;">No</th>
-                                    <th width="1%;">NISN</th>
+                                    <th width="1%;">NIS</th>
                                     <th>Nama</th>
                                     @foreach ($header as $bulan)
                                         <th>
@@ -61,7 +61,9 @@
                                         <td>{{ $item['siswa']['nama'] }}</td>
                                         @foreach ($item['dataTagihan'] as $itemTagihan)
                                             <td class="text-center">
-                                                @if ($itemTagihan['tanggal_lunas'] != '-')
+                                                @if ($item['siswa']['kategori']==='AP100')
+                                                    {{ 'AP100' }}
+                                                @elseif ($itemTagihan['tanggal_lunas'] != '-')
                                                     {{ optional($itemTagihan['tanggal_lunas'])->format(config('app.format_tanggal')) }}
                                                 @else
                                                     -

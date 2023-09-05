@@ -58,6 +58,14 @@
                             ]) !!}
                             <small class="text-danger">{{ $errors->first('angkatan') }}</small>
                         </div>
+                        <div class="form-group mt-3">
+                            <label for="kategori" class="form-label">Kategori Siswa</label>
+                            {!! Form::select('kategori', getKategoriSiswa(), request('kategori') ?? '', [
+                                'class' => 'form-control',
+                                'placeholder' => 'pilih kategori siswa atau tampilkan semua',
+                            ]) !!}
+                            <small class="text-danger">{{ $errors->first('kelas') }}</small>
+                        </div>
                     </div>
                     <input type="submit" name="cari" value="cari data" class="btn btn-success">
                     {!! Form::close() !!}
@@ -107,8 +115,8 @@
                                                 'class' => 'form-check-input checkboxes',
                                                 'id' => 'gridCheck' . $loop->iteration,
                                             ]) !!}</td>
-                                            <td width="20%">{{ $item->nama }}</td>
-                                            <td>{{ $item->kelas }}</td>
+                                            <td width="50%">{{ $item->nama }}</td>
+                                            <td>{{ $item->kelas }} {{ $item->rombel }}</td>
                                             <td>{{ $item->angkatan }}</td>
                                         </tr>
                                     @empty
@@ -126,7 +134,7 @@
                         <a href="{{ route(auth()->user()->akses . '.tagihanlainstep.create', ['step' => 1]) }}"
                             class="btn btn-label-secondary btn-prev border" disabled>
                             <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
-                            <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                            <span class="align-middle d-sm-inline-block d-none">Prev</span>
                         </a>
 
                         <a href="{{ route(auth()->user()->akses . '.tagihanlainstep.create', ['step' => 3]) }}"

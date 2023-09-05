@@ -31,6 +31,7 @@ class StoreSiswaRequest extends FormRequest
             'jurusan' => 'required',
             'kelas' => 'required',
             'angkatan' => 'required',
+            'kategori' => 'required',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:5048',
         ];
     }

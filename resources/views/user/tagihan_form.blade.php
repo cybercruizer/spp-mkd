@@ -9,10 +9,10 @@
                     {!! Form::model($model, ['route' => $route, 'method' => $method, 'id' => 'form-ajax']) !!}
 
                     <div class="form-group mt-3">
-                        <label for="siswa_id" class="form-label">Pilih Siswa atau Biarkan kosong</label>
-                        {!! Form::select('siswa_id', $siswaList, null, [
+                        <label for="kelas" class="form-label">Pilih kelas yang akan dikenakan tagihan SPP</label>
+                        {!! Form::select('kelas', getNamaKelas(), null, [
                             'class' => 'form-control select2',
-                            'placeholder' => 'Pilih Siswa',
+                            'placeholder' => 'Pilih Kelas',
                         ]) !!}
                         <small class="text-danger">{{ $errors->first('siswa_id') }}</small>
                     </div>
