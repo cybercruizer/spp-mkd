@@ -63,6 +63,8 @@ class TagihanLainStepController extends Controller
                 $query->where('kelas', request('kelas'));
             })->when(request()->filled('angkatan'), function ($query) {
                 $query->where('angkatan', request('angkatan'));
+            })->when(request()->filled('kategori'), function ($query) {
+                $query->where('kategori', request('kategori'));
             });
         }
         $data['siswa'] = $query->get()->each(function ($q) {

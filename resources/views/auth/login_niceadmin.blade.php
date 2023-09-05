@@ -10,7 +10,7 @@
                         <img src="{{ \Storage::url(settings()->get('app_logo')) }}" style="height: 100px;">
                         <div class="d-flex justify-content-center py-4">
                             <a href="#" class="logo d-flex align-items-center w-auto">
-                                <span class="text-primary h5 m-0 fw-bold">{{ settings()->get('app_name') }}</span>
+                                <span class="text-primary h5 m-0 fw-bold text-center">{{ settings()->get('app_name') }}</span>
                             </a>
                         </div><!-- End Logo -->
 
@@ -66,7 +66,7 @@
                                         @endif
                                     </div>
                                     <div class="col-12 text-center">
-                                        Jika ayah bunda belum memiliki akun, silahkan hubungi bendahara sekolah.
+                                        Jika bapak/ Ibu belum memiliki akun, silahkan hubungi bendahara sekolah.
                                         <a href="https://wa.me/+{{ settings()->get('no_wa_operator') }}"
                                             target="_blank">Klik Link
                                             Whatsapp ini</a>

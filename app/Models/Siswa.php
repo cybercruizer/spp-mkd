@@ -73,6 +73,14 @@ class Siswa extends Model
         }
         return (Storage::exists($value)) ? $value : $defaultFoto;
     }
+    public static function getKategori($id)
+    {
+        $siswa = self::find($id);
+        if ($siswa) {
+            return $siswa->kategori;
+        }
+        return null;
+    }
 
     protected $searchable = [
         'columns' => [

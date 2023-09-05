@@ -122,6 +122,7 @@
                                     <th>Wali Murid</th>
                                     <th>Kelas</th>
                                     <th>Biaya SPP</th>
+                                    <th>Ktg</th>
                                     <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
@@ -130,9 +131,22 @@
                                     <tr>
                                         <td>{!! Form::checkbox('siswa_id[]', $item->id, null, ['class' => 'check-siswa-id']) !!}</td>
                                         <td width="20%">{{ $item->nama }}</td>
-                                        <td>{{ $item->wali->name ?? 'Belum ada wali murid' }}</td>
-                                        <td>{{ $item->kelas }} ({{ $item->jurusan }})</td>
-                                        <td>{{ formatRupiah($item->biaya->total_tagihan) }}</td>
+                                        <td>{{ $item->wali->name ?? '-' }}</td>
+                                        <td>{{ $item->kelas }} {{ $item->rombel }}</td>
+                                        <td>
+                                            @switch($item->kategori)
+                                                @case('AP50')
+                                                    {{ formatRupiah($item->biaya->total_tagihan*50/100) }}
+                                                    @break
+                                                @case('AP100')
+                                                    {{ formatRupiah(0) }}
+                                                    @break
+                                                @default
+                                                    {{ formatRupiah($item->biaya->total_tagihan) }}
+                                            @endswitch
+                                            
+                                        </td>
+                                        <td>{{ $item->kategori }}</td>
                                         {{-- cara pak aim <td>{{ formatRupiah($item->biaya?->first()->total_tagihan) }}</td> --}}
                                         <td class="text-center">
                                             {!! Form::open([
@@ -142,14 +156,14 @@
                                             ]) !!}
                                             <a href="{{ route($routePrefix . '.edit', $item->id) }}"
                                                 class="btn btn-sm btn-warning">
-                                                <i class="bi bi-pencil-square d-md-inline d-none"></i> Edit
+                                                <i class="bi bi-pencil-square d-md-inline d-none"></i> E
                                             </a>
                                             <a href="{{ route($routePrefix . '.show', $item->id) }}"
-                                                class="btn btn-sm btn-info mx-2 my-1 my-md-0">
-                                                <i class="bi bi-info-circle d-md-inline d-none"></i> Detail
+                                                class="btn btn-sm btn-info mx-1">
+                                                <i class="bi bi-info-circle d-md-inline d-none"></i> D
                                             </a>
                                             <button type="submit" class="btn btn-sm btn-danger">
-                                                <i class="bi bi-trash d-md-inline d-none"></i> Hapus
+                                                <i class="bi bi-trash d-md-inline d-none"></i> H
                                             </button>
                                             {!! Form::close() !!}
                                         </td>

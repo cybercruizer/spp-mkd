@@ -42,7 +42,7 @@
         <div class="container d-flex align-items-center">
 
             <h1 class="logo me-auto">
-                <img src="{{ asset('mentor') }}/assets/img/logo.png">
+                <img src="{{ \Storage::url(settings()->get('app_logo')) }}">
                 <a href="#">{{ settings()->get('app_name') }}</a>
             </h1>
             <!-- Uncomment below if you prefer to use an image logo -->
@@ -64,7 +64,7 @@
     <section id="hero" class="d-flex justify-content-center align-items-center">
         <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
             <h1>Selamat Datang,<br>Di {{ settings()->get('app_name') }}</h1>
-            <h2>Kami menyediakan informasi seputar smk purnama 1
+            <h2>Kami menyediakan informasi seputar {{ settings()->get('app_name') }}
                 <br> dan menyediakan sistem pembayaran spp
             </h2>
             <a href="{{ route('login') }}" class="btn-get-started">Login Pembayaran SPP</a>
@@ -83,8 +83,13 @@
                     <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
                         <h3>Program Keahlian.</h3>
                         <ul>
-                            <li><i class="bi bi-check-circle"></i> Akuntansi.</li>
-                            <li><i class="bi bi-check-circle"></i> Bisnis Dan Pemasaran.</li>
+                            <li><i class="bi bi-check-circle"></i> Teknik Komputer dan Jaringan</li>
+                            <li><i class="bi bi-check-circle"></i> Teknik Pemesinan</li>
+                            <li><i class="bi bi-check-circle"></i> Teknik Instalasi Tenaga Listrik</li>
+                            <li><i class="bi bi-check-circle"></i> Teknik Sepeda Motor</li>
+                            <li><i class="bi bi-check-circle"></i> Teknik Kendaraan Ringan</li>
+                            <li><i class="bi bi-check-circle"></i> Kuliner</li>
+                            <li><i class="bi bi-check-circle"></i> Perhotelan</li>
                         </ul>
                         <h3>Fasilitas Pendidikan.</h3>
                         <ul>
@@ -95,7 +100,7 @@
                         </ul>
                         <h3>Alamat Sekolah.</h3>
                         <ul>
-                            <li>Jalan Purnama RT 14, Kel. Suka Karya, Kec. Kota Baru, Jambi.</li>
+                            <li>Jl. Pemandian, Blabak, Mungkid</li>
                         </ul>
                     </div>
                 </div>
@@ -107,22 +112,20 @@
             <div class="container" data-aos="fade-up">
                 <div class="row">
                     <div class="col-lg-6 order-2 order-lg-1">
-                        <img src="{{ asset('mentor') }}/assets/img/bg1.jpg" class="img-fluid" alt="">
+                        <img src="{{ asset('mentor') }}/assets/img/bg2.jpg" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right"
                         data-aos-delay="100">
                         <h3>Visi.</h3>
                         <ul>
-                            <li><i class="bi bi-check-circle"></i> Menciptakan tamatan yang berakhlak mulia, unggul,
-                                terampil, mandiri dan profesional berdasarkan imtan dan iptek.</li>
+                            <li><i class="bi bi-check-circle"></i> Visi1</li>
                         </ul>
                         <h3>Misi.</h3>
                         <ul>
-                            <li><i class="bi bi-check-circle"></i> Meningkatkan ketaqwaan terhadap Tuhan Yang Maha Esa.
+                            <li><i class="bi bi-check-circle"></i> Visi 2
                             </li>
-                            <li><i class="bi bi-check-circle"></i> Menyiapkan tamatan agar mampu bekerja mandiri,
-                                produktif, kreatif, serta memiliki moral yang baik.</li>
-                            <li><i class="bi bi-check-circle"></i> Meningkatkan keterampilan dan ketelitian siswa.</li>
+                            <li><i class="bi bi-check-circle"></i> Visi 3</li>
+                            <li><i class="bi bi-check-circle"></i> dst ...</li>
                         </ul>
                     </div>
                 </div>
@@ -130,11 +133,15 @@
         </section><!-- End About Section -->
 
         <section id="map" class="contact my-5">
-            <div data-aos="fade-up" class="aos-init aos-animate">
-                <iframe style="border:0; width: 100%; height: 350px;"
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d528.167996182202!2d103.59876631001652!3d-1.6351745098142279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1672382724998!5m2!1sid!2sid"
-                    frameborder="0" allowfullscreen=""></iframe>
-            </div>
+            <div style="overflow:hidden;width: 100%;position: relative;">
+                <iframe width="1366" height="350" src="https://maps.google.com/maps?width=1366&amp;height=350&amp;hl=en&amp;q=SMK%20Muhammadiyah%20Mungkid+(SMK%20Muhammadiyah%20Mungkid)&amp;ie=UTF8&amp;t=&amp;z=12&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                </iframe>
+                <div style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;">
+                    <small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by <a href="https://embedgooglemaps.com/">Embed Google Maps</a>
+                    </small>
+                </div>
+                <style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
+            </div><br />
         </section>
 
     </main><!-- End #main -->
@@ -147,11 +154,11 @@
                 <div class="row">
 
                     <div class="col-lg-3 col-md-6 footer-contact">
-                        <h3>{{ settings()->get('app_name') }} JAMBI</h3>
+                        <h3>{{ settings()->get('app_name') }}</h3>
                         <p>
-                            Jalan Purnama RT 14<br>
-                            Kelurahan Suka Karya<br>
-                            Kecamatan Kota Baru, Jambi <br><br>
+                            Jalan Pemandian<br>
+                            Desa Mungkid<br>
+                            Kecamatan Mungkid, Magelang <br><br>
                             <strong>Phone:</strong> {{ settings()->get('app_phone') }} atau
                             {{ settings()->get('no_wa_operator') }}<br>
                             <strong>Email:</strong> {{ settings()->get('app_email') }}<br>
@@ -171,10 +178,10 @@
 
             <div class="me-md-auto text-center text-md-start" style="font-size: 13px;">
                 <div class="copyright">
-                    Build with Zepi Darmawan T
+                    Build with Laravel
                 </div>
                 <div class="credits">
-                    Designed by <a href="#">BootstrapMade</a> & Mentor
+                    Tema: <a href="#">BootstrapMade</a> & Mentor
                 </div>
             </div>
         </div>

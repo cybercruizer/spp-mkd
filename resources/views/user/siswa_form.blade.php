@@ -91,7 +91,7 @@
                         <small class="text-danger">{{ $errors->first('biaya_id') }}</small>
                     </div>
                     <div class="form-group mt-3">
-                        <label for="text" class="form-label">NISN</label>
+                        <label for="text" class="form-label">NIS</label>
                         {!! Form::text('nisn', null, [
                             'class' => 'form-control',
                             'required' => 'required',
@@ -109,12 +109,22 @@
                         <small class="text-danger">{{ $errors->first('kelas') }}</small>
                     </div>
                     <div class="form-group mt-3">
+                        <label for="rombel" class="form-label">Rombel</label>
+                        {!! Form::select('rombel', getNamaRombel(), null, ['class' => 'form-control', 'required' => 'required']) !!}
+                        <small class="text-danger">{{ $errors->first('rombel') }}</small>
+                    </div>
+                    <div class="form-group mt-3">
                         <label for="angkatan" class="form-label">Angkatan</label>
                         {!! Form::selectRange('angkatan', date('Y') - 3, date('Y') + 1, null, [
                             'class' => 'form-control',
                             'required' => 'required',
                         ]) !!}
                         <small class="text-danger">{{ $errors->first('angkatan') }}</small>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="kategori" class="form-label">Kategori</label>
+                        {!! Form::select('kategori', getKategoriSiswa(), null, ['class' => 'form-control', 'required' => 'required']) !!}
+                        <small class="text-danger">{{ $errors->first('kategori') }}</small>
                     </div>
                     @if ($model->foto != null)
                         <div class="mt-3">

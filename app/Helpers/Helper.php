@@ -11,7 +11,31 @@ function getNamaKelas()
 function getNamaJurusan()
 {
     return [
-        'AK' => 'Akuntansi',
+        'TKJ' => 'Teknik Komputer dan Jaringan',
+        'TPM' => 'Teknik Pemesinan',
+        'TSM' => 'Teknik Sepeda Motor',
+        'TKR' => 'Teknik Kendaraan Ringan',
+        'TITL' => 'Teknik Instalasi Tenaga Listrik',
+        'KUL' => 'Kuliner',
+        'PHT' => 'Perhotelan',
+    ];
+}
+function getNamaRombel()
+{
+    return [
+        'TKJ 1' => 'TKJ 1',
+        'TKJ 2' => 'TKJ 2',
+        'TPM 1' => 'TPM 1',
+        'TPM 2' => 'TPM 2',
+        'TSM 1' => 'TSM 1',
+        'TSM 2' => 'TSM 2',
+        'TSM 3' => 'TSM 3',
+        'TKR 1' => 'TKR 1',
+        'TKR 2' => 'TKR 2',
+        'TITL 1' => 'TITL 1',
+        'TITL 2' => 'TITL 2',
+        'KUL' => 'KUL',
+        'PHT' => 'PHT',
     ];
 }
 
@@ -20,6 +44,14 @@ function getStatusSiswa()
     return [
         'aktif' => 'aktif',
         'non-aktif' => 'non-aktif'
+    ];
+}
+function getKategoriSiswa()
+{
+    return [
+        'REG' => 'Reguler',
+        'AP50' => 'Aksi Peduli 50%',
+        'AP100' => 'Aksi Peduli 100%',
     ];
 }
 
@@ -52,9 +84,9 @@ function getTahunAjaranFull($month, $year){
 
 function getRangeTahun()
 {
-    $dateAwal = date('Y') - 4;
+    $dateAwal = date('Y') - 2;
     $tahun = [];
-    for ($i=0; $i < 4; $i++) {
+    for ($i=0; $i < 3; $i++) {
         $tahun[$dateAwal] = $dateAwal.'-'.$dateAwal+1;
         $dateAwal+=1;
     }

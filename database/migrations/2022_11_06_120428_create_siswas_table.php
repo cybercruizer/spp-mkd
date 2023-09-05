@@ -19,9 +19,12 @@ return new class extends Migration
             $table->string('wali_status')->nullable();
             $table->string('nama', 255);
             $table->string('nisn', 20)->unique();
+            $table->enum('jenis_kelamin',['L','P']);
             $table->string('jurusan', 20);
-            $table->string('kelas', 3);
+            $table->tinyInteger('kelas');
+            $table->string('kelas', 10);
             $table->integer('angkatan');
+            $table->enum('kategori',['REG','AP50','AP100'])->default('REG');
             $table->foreignId('user_id');
             $table->timestamps();
         });

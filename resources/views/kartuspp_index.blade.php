@@ -13,7 +13,7 @@
         }
 
         .invoice-box {
-            background-color: #93c5fd;
+            background-color: #ffffff;
             max-width: 600px;
             margin: auto;
             padding: 30px;
@@ -215,7 +215,7 @@
             <tr>
                 <td></td>
                 <td colspan="3">
-                    Jambi, {{ now()->translatedFormat('d, F Y') }} <br>
+                    Magelang, {{ now()->translatedFormat('d F Y') }} <br>
                     @include('components.informasi_pj')
                 </td>
             </tr>

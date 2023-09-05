@@ -20,7 +20,7 @@
                                 </tr>
                                 <tr>
                                     <td>Nama Wali</td>
-                                    <td>: {{ $model->wali->name ?? 'Belum ada wali murid' }}</td>
+                                    <td>: {{ $model->wali->name ?? '-' }}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="2" class="bg-secondary text-white fw-bold shadow-sm">

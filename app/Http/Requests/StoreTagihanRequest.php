@@ -27,7 +27,7 @@ class StoreTagihanRequest extends FormRequest
             // 'biaya_id.*' => 'required',
             // 'angkatan' => 'nullable|numeric',
             // 'kelas' => 'nullable',
-            'siswa_id' => 'nullable',
+            //'siswa_id' => 'nullable',
             'tanggal_tagihan' => 'required|date',
             'tanggal_jatuh_tempo' => 'required|date',
             'keterangan' => 'nullable|string',
