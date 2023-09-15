@@ -9,7 +9,7 @@
                 <tr>
                     <th width="1%">#</th>
                     <th>TANGGAL</th>
-                    <th>METODE</th>
+                    <th>MET</th>
                     <th class="text-end">JUMLAH</th>
                 </tr>
             </thead>
@@ -44,6 +44,11 @@
                     <td class="text-end fw-bold">{{ formatRupiah($tagihan->total_pembayaran) }}</td>
                     {{-- <td>&nbsp;</td> --}}
                 </tr>
+{{--              <tr>
+                    <td colspan="3" class="fw-bold text-center">Kekurangan</td>
+                    <td class="text-end fw-bold">{{ formatRupiah($tagihan->total_tagihan-$tagihan->total_pembayaran) }}</td>
+                     <td>&nbsp;</td> 
+                </tr> --}}
                 <tr>
                     <td colspan="4" class="fw-bold text-center">Status Pembayaran: {{ strtoupper($tagihan->status) }}
                     </td>

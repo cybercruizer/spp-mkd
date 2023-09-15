@@ -15,8 +15,8 @@ Mengetahui,
     <br>
 @endif
 <div>
-    {{ settings()->get('pj_nama') }}
+    {{ settings()->get('pj_jabatan') }}
 </div>
 <div>
-    {{ settings()->get('pj_jabatan') }}
+    {{ settings()->get('pj_nama') }}
 </div>

@@ -14,10 +14,10 @@
 
         .invoice-box {
             background-color: #ffffff;
-            max-width: 800px;
+            max-width: 90%;
             margin: auto;
             padding: 30px;
-            border: 1px solid #eee;
+            border: 0px;
             /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
             font-size: 16px;
             line-height: 24px;
@@ -179,7 +179,7 @@
             </tr>
             <tr>
                 <td>Untuk pembayaran</td>
-                <td>: SPP {{ $pembayaran->tagihan->tanggal_tagihan->translatedFormat('F Y') }}</td>
+                <td>: {{ $pembayaran->tagihan->biaya->nama }}</td>
             </tr>
             <tr>
                 <td colspan="2"></td>
@@ -197,8 +197,8 @@
                 <td colspan="2">
                     <table>
                         <tr>
-                            <td colspan="2" style="vertical-align: bottom">
-                                <div style="background-color: #eee; width: 100px; padding:10px;font-weight:bold; text-align:center">
+                            <td colspan="2" style="vertical-align:middle">
+                                <div style="background-color: #eee; width: 300px; padding:10px;font-weight:bold; text-align:center">
                                     {{ formatRupiah($pembayaran->jumlah_dibayar) }}
                                 </div>
                             </td>

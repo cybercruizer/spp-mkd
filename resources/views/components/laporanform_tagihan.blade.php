@@ -19,6 +19,13 @@
         ]) !!}
     </div>
     <div class="col-md-2 col-sm-12 mb-1 mb-md-0">
+        <label for="rombel" class="form-label">Rombel</label>
+        {!! Form::select('rombel', getNamaRombel(), request('rombel'), [
+            'class' => 'form-select',
+            'placeholder' => 'Pilih Rombel',
+        ]) !!}
+    </div>
+    <div class="col-md-2 col-sm-12 mb-1 mb-md-0">
         <label for="angkatan" class="form-label">Angkatan</label>
         {!! Form::selectRange('angkatan', 2021, date('Y') + 1, null, [
             'class' => 'form-control',

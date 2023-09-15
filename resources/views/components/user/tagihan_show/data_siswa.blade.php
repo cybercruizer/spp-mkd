@@ -11,7 +11,7 @@
                 </td>
             </tr>
             <tr>
-                <td width="50">NISN</td>
+                <td width="120">NIS</td>
                 <td>: {{ $siswa->nisn }}</td>
             </tr>
             <tr>
@@ -19,7 +19,15 @@
                 <td>: {{ $siswa->nama }}</td>
             </tr>
             <tr>
-                <td>JENIS TAGIHAN</td>
+                <td>Kelas</td>
+                <td>: {{ $siswa->kelas }} {{ $siswa->rombel }}</td>
+            </tr>
+            <tr>
+                <td>KATEGORI</td>
+                <td>: <span class="badge bg-warning fw-bold">{{ $siswa->kategori }}</span></td>
+            </tr>
+            <tr>
+                <td>TAGIHAN</td>
                 <td>: {{ $tagihan->biaya->nama }}</td>
             </tr>
         </table>

@@ -50,7 +50,7 @@
                                 Tambah Tagihan Lain
                             </a>
                         </div>
-                        <div class="col-md-6">
+{{--                        <div class="col-md-6">
                             {!! Form::open(['route' => $routePrefix . '.index', 'method' => 'GET']) !!}
                             <div class="input-group mr-auto">
                                 <input name="q" type="text" class="form-control" placeholder="Cari Data"
@@ -61,6 +61,7 @@
                             </div>
                             {!! Form::close() !!}
                         </div>
+--}}
                     </div>
                     @if (request('job_status_id') != '')
                         <div class="progress mb-3">

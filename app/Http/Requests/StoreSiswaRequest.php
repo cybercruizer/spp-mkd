@@ -30,6 +30,7 @@ class StoreSiswaRequest extends FormRequest
             'nisn' => 'required|unique:siswas',
             'jurusan' => 'required',
             'kelas' => 'required',
+            'rombel' => 'required',
             'angkatan' => 'required',
             'kategori' => 'required',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:5048',

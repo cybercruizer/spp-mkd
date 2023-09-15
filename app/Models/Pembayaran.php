@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use DB;
+use App\Models\Biaya;
+use App\Models\Tagihan;
+use Spatie\Activitylog\LogOptions;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Activitylog\Traits\LogsActivity;
-use Spatie\Activitylog\LogOptions;
-use DB;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Pembayaran extends Model
 {
@@ -55,6 +58,15 @@ class Pembayaran extends Model
     public function tagihan(): BelongsTo
     {
         return $this->belongsTo(Tagihan::class);
+    }
+    /**
+     * Get all of the tagihanDetail for the Pembayaran
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+     */
+    public function biayaDetail(): HasManyThrough
+    {
+        return $this->hasManyThrough(Biaya::class, Tagihan::class);
     }
 
     /**

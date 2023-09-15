@@ -51,6 +51,13 @@ class LaporanTagihanController extends Controller
             // $subtitle = $subtitle." Kelas: ".$request->kelas;
             $subtitle = $subtitle . " | <span class='badge rounded-pill bg-danger'>Kelas: " . $request->kelas . "</span>";
         }
+        if ($request->filled('rombel')) {
+            $tagihan->whereHas('siswa', function ($q) use ($request) {
+                $q->where('rombel', $request->rombel);
+            });
+            // $subtitle = $subtitle." Kelas: ".$request->kelas;
+            $subtitle = $subtitle . " | <span class='badge rounded-pill bg-danger'>Rombel: " . $request->rombel . "</span>";
+        }
         if ($request->filled('angkatan')) {
             $tagihan->whereHas('siswa', function ($q) use ($request) {
                 $q->where('angkatan', $request->angkatan);

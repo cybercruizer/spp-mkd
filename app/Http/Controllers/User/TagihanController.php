@@ -67,9 +67,9 @@ class TagihanController extends Controller
             'button' => 'SIMPAN',
             'title' => 'FORM DATA TAGIHAN',
             'siswaList' => $siswa->pluck('nama', 'id'),
-            // 'angkatan' => $siswa->pluck('angkatan', 'angkatan'),
-            // 'kelas' => $siswa->pluck('kelas', 'kelas'),
-            // 'biaya' => Biaya::get(),
+            //'angkatan' => $siswa->pluck('angkatan', 'angkatan'),
+            'kelas' => $siswa->pluck('kelas', 'kelas'),
+            'biaya' => Biaya::whereNull('parent_id')->pluck('nama','id'),
         ];
 
         return view('user.' . $this->viewCreate, $data);
@@ -82,7 +82,7 @@ class TagihanController extends Controller
         $this->dispatch($processTagihan);
         // return redirect()->action('\Imtigger\LaravelJobStatus\ProgressController@progress', [$processTagihan->getJobStatusId()]);
         return redirect()->route(auth()->user()->akses . '.jobstatus.index', ['job_status_id' => $processTagihan->getJobStatusId()]);
-        // flash('Data berhasil ditambahkan');
+        flash('Data berhasil ditambahkan');
         // return redirect()->route('tagihan.index');
     }
 

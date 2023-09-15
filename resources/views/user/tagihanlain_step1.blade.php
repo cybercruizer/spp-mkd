@@ -34,7 +34,7 @@
                                     <label class="form-check-label" for="gridRadios2">Pilih siswa tertentu</label>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+{{--                            <div class="col-md-6">
                                 <div class="form-check">
                                     {!! Form::radio('tagihan_untuk', 'pilihan', false, [
                                         'class' => 'form-check-input',
@@ -43,6 +43,7 @@
                                     <label class="form-check-label" for="gridRadios3">Semua, kecuali AP</label>
                                 </div>
                             </div>
+--}}  
                         </div>
                     </div>
                     <div class="col-12 d-flex justify-content-between">

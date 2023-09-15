@@ -31,6 +31,7 @@ class UpdateSiswaRequest extends FormRequest
             'nisn' => 'required|unique:siswas,nisn,'.$this->siswa,
             'jurusan' => 'required',
             'kelas' => 'required',
+            'rombel' => 'required',
             'angkatan' => 'required',
             'kategori' => 'required',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:5048',

@@ -8,7 +8,7 @@
 
                 <div class="card-body">
                     <div class="table-responsive">
-                        <img src="{{ \Storage::url($model->foto) }}" width="150" class="my-3">
+                        <img src="{{ \Storage::url($model->foto ?? 'images/nouser.png') }}" width="150" class="my-3">
                         <table class="table table-striped table-sm">
                             <thead>
                                 <tr>

@@ -40,8 +40,15 @@ class ProcessTagihanStore implements ShouldQueue
     public function handle()
     {
         $requestData = $this->requestData;
-        
-        $siswa = Siswa::currentStatus('aktif');
+        if ($requestData['kelas']==10) {
+            $siswa = Siswa::currentStatus('aktif')->where('kelas',10);
+        } elseif ($requestData['kelas']==11) {
+            $siswa = Siswa::currentStatus('aktif')->where('kelas',11);
+        } elseif ($requestData['kelas']==12) {
+            $siswa = Siswa::currentStatus('aktif')->where('kelas',12);
+        } else {
+            $siswa = Siswa::currentStatus('aktif');
+        }
         $requestData['status'] = 'baru';
         $tanggalTagihan = Carbon::parse($requestData['tanggal_tagihan']);
         $bulanTagihan = $tanggalTagihan->format('m');

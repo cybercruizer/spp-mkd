@@ -30,9 +30,10 @@
                         <div class="col-md-12">
                             {!! Form::open(['route' => auth()->user()->akses . '.pembayaran.index', 'method' => 'GET']) !!}
                             <div class="row justify-content-end">
-                                <div class="col-md-4 col-sm-12 mb-3 mb-md-0">
+{{--                           <div class="col-md-4 col-sm-12 mb-3 mb-md-0">
                                     {!! Form::text('q', request('q'), ['class' => 'form-control', 'placeholder' => 'Pencarian Data Siswa']) !!}
                                 </div>
+ --}}
                                 <div class="col-md-2 col-sm-12 mb-3 mb-md-0">
                                     {!! Form::select(
                                         'status',

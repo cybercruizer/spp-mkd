@@ -15,6 +15,7 @@ class LaporanFormController extends Controller
         return view('kepala_sekolah.laporanform_index', [
             'biayaList' => Biaya::whereNull('parent_id')->pluck('nama', 'id'),
             'kelas' =>Siswa::pluck('kelas'),
+            'rombel' =>Siswa::pluck('rombel')
         ]);
     }
 }

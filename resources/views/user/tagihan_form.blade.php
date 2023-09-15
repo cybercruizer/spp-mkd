@@ -14,10 +14,18 @@
                             'class' => 'form-control select2',
                             'placeholder' => 'Pilih Kelas',
                         ]) !!}
-                        <small class="text-danger">{{ $errors->first('siswa_id') }}</small>
+                        <small class="text-danger">{{ $errors->first('kelas') }}</small>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="biaya_id" class="form-label">Pilih nama biaya</label>
+                        {!! Form::select('biaya_id', $biaya, null, [
+                            'class' => 'form-control select2',
+                            'placeholder' => 'Pilih biaya',
+                        ]) !!}
+                        <small class="text-danger">{{ $errors->first('biaya_id') }}</small>
                     </div>
 
-                    <div class="form-group mt-3">
+                     <div class="form-group mt-3">
                         <label for="tanggal_tagihan" class="form-label">Tanggal Tagihan</label>
                         {!! Form::date('tanggal_tagihan', $model->tanggal_tagihan ?? date('Y-m-') . '01', [
                             'class' => 'form-control',
@@ -26,7 +34,7 @@
                         <small class="text-danger">{{ $errors->first('tanggal_tagihan') }}</small>
                     </div>
 
-                    <div class="form-group mt-3">
+{{--                    <div class="form-group mt-3">
                         <label for="tanggal_jatuh_tempo" class="form-label">Tanggal Jatuh Tempo</label>
                         {!! Form::date('tanggal_jatuh_tempo', $model->tanggal_jatuh_tempo ?? date('Y-m-15', strtotime('+1 month')), [
                             'class' => 'form-control',
@@ -34,7 +42,7 @@
                         ]) !!}
                         <small class="text-danger">{{ $errors->first('tanggal_jatuh_tempo') }}</small>
                     </div>
-
+ --}}
                     <div class="form-group mt-3">
                         <label for="keterangan" class="form-label">Keterangan</label>
                         {!! Form::textarea('keterangan', null, [

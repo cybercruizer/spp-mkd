@@ -174,7 +174,7 @@
         @if (auth()->user()->akses == 'operator' || auth()->user()->akses == 'kepala_sekolah')
             <div class="search-bar">
                 {!! Form::open([
-                    'route' => auth()->user()->akses . '.tagihan.index',
+                    'route' => auth()->user()->akses . '.'.Request::segment(2).'.index',
                     'method' => 'GET',
                     'class' => 'search-form d-flex align-items-center',
                 ]) !!}

@@ -94,9 +94,10 @@
                         <div class="col-md-12">
                             {!! Form::open(['route' => $routePrefix . '.index', 'method' => 'GET']) !!}
                             <div class="row justify-content-end gx-2">
-                                <div class="col-md-3 col-sm-12 my-3 my-md-0">
+{{--                                 <div class="col-md-3 col-sm-12 my-3 my-md-0">
                                     {!! Form::text('q', request('q'), ['class' => 'form-control', 'placeholder' => 'Pencarian Data Siswa']) !!}
                                 </div>
+ --}}
                                 <div class="col-md-2 col-sm-12 mb-3 mb-md-0">
                                     {!! Form::select(
                                         'status',

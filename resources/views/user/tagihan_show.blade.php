@@ -7,6 +7,7 @@
         </div>
     </div>
 
+    
     <div class="row">
         <div class="col-md-{{ $tagihan->jenis == 'spp' ? '5' : '12' }}">
             @include('components.user.tagihan_show.data_tagihan')

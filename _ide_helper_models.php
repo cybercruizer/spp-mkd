@@ -115,6 +115,8 @@ namespace App\Models{
  * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Activitylog\Models\Activity[] $activities
  * @property-read int|null $activities_count
  * @property-read \App\Models\BankSekolah|null $bankSekolah
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Biaya[] $biayaDetail
+ * @property-read int|null $biaya_detail_count
  * @property-read mixed $status_style
  * @property-read \App\Models\Tagihan|null $tagihan
  * @property-read \App\Models\User|null $user
