@@ -6,7 +6,7 @@
         <table class="table">
             <tr>
                 <td rowspan="8" width="100">
-                    <img src="{{ \Storage::url($siswa->foto ?? 'images/no-image.png') }}" alt="{{ $siswa->nama }}"
+                    <img src="{{ Storage::url($siswa->foto ?? 'images/no-image.png') }}" alt="{{ $siswa->nama }}"
                         width="120" class="my-3">
                 </td>
             </tr>
