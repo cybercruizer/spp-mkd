@@ -145,6 +145,37 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Rombel
+ *
+ * @property int $id
+ * @property int $walikelas_id
+ * @property int $ketuakelas_id
+ * @property int $kelas
+ * @property string $jurusan
+ * @property string $nama_rombel
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Siswa|null $ketuakelas
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Siswa[] $siswa
+ * @property-read int|null $siswa_count
+ * @property-read \App\Models\User|null $walikelas
+ * @method static \Illuminate\Database\Eloquent\Builder|Rombel newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Rombel newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Rombel query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Rombel whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Rombel whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Rombel whereJurusan($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Rombel whereKelas($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Rombel whereKetuakelasId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Rombel whereNamaRombel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Rombel whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Rombel whereWalikelasId($value)
+ */
+	class Rombel extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Siswa
  *
  * @property int $id
@@ -167,6 +198,7 @@ namespace App\Models{
  * @property-read int|null $activities_count
  * @property-read \App\Models\Biaya|null $biaya
  * @property-read string $status
+ * @property-read \App\Models\Rombel|null $relrombel
  * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\ModelStatus\Status[] $statuses
  * @property-read int|null $statuses_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Tagihan[] $tagihan
@@ -299,6 +331,7 @@ namespace App\Models{
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Pembayaran[] $pembayaran
  * @property-read int|null $pembayaran_count
+ * @property-read \App\Models\Rombel|null $rombel
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Siswa[] $siswa
  * @property-read int|null $siswa_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Sanctum\PersonalAccessToken[] $tokens

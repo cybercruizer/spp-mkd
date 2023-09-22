@@ -33,7 +33,7 @@ class KartuSppController extends Controller
             }
 
             // mencari tagihan berdasarkan siswa, bulan dan tahun
-            $tagihan = $siswa->tagihan->filter(function ($value) use ($bulan, $tahun) {
+            $tagihan = $siswa->tagihan->where('jenis','spp')->filter(function ($value) use ($bulan, $tahun) {
                 return $value->tanggal_tagihan->year == $tahun &&
                     $value->tanggal_tagihan->month == $bulan;
             })->first();

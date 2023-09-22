@@ -55,6 +55,11 @@ class LoginController extends Controller
                 ->event('login')
                 ->log('user wali ' . auth()->user()->name . ' melakukan login');
             return redirect()->route('wali.beranda');
+        } elseif ($user->akses == 'walikelas') {
+            activity()->causedBy(Auth::user())
+                ->event('login')
+                ->log('user walikelas ' . auth()->user()->name . ' melakukan login');
+            return redirect()->route('walikelas.beranda');
         } else {
             Auth::logout();
             flash('Anda tidak memiliki hak akses')->error();

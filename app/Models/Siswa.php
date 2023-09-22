@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Nicolaslopezj\Searchable\SearchableTrait;
-use Spatie\ModelStatus\HasStatuses;
 use Storage;
-use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\LogOptions;
+use Spatie\ModelStatus\HasStatuses;
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Nicolaslopezj\Searchable\SearchableTrait;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Siswa extends Model
 {
@@ -45,6 +46,16 @@ class Siswa extends Model
     public function tagihan()
     {
         return $this->hasMany(Tagihan::class);
+    }
+
+    /**
+     * Get the kelas that owns the Siswa
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function relrombel(): BelongsTo
+    {
+        return $this->belongsTo(Rombel::class,'rombel','id');
     }
 
     /**

@@ -66,6 +66,7 @@ class Kernel extends HttpKernel
         'auth.kepalasekolah' => \App\Http\Middleware\KepalaSekolah::class,
         'auth.operator' => \App\Http\Middleware\Operator::class,
         'auth.wali' => \App\Http\Middleware\Wali::class,
+        'auth.walikelas' => \App\Http\Middleware\Walikelas::class,
         'LogVisits' => \Shetabit\Visitor\Middlewares\LogVisits::class,
     ];
 }

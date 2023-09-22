@@ -1,47 +1,50 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\LoginController;
-
-use App\Http\Controllers\KwitansiPembayaranController;
-use App\Http\Controllers\KartuSppController;
-use App\Http\Controllers\WaliNotifikasiController;
 use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\PanduanPembayaranController;
 
-use App\Http\Controllers\User\WaliController;
-use App\Http\Controllers\User\SiswaController;
-use App\Http\Controllers\User\BiayaController;
-use App\Http\Controllers\User\TagihanController;
-use App\Http\Controllers\User\TagihanLainStepController;
-use App\Http\Controllers\User\TagihanLainStep2Controller;
-use App\Http\Controllers\User\PembayaranController;
-use App\Http\Controllers\User\StatusController;
-use App\Http\Controllers\User\JobStatusController;
-use App\Http\Controllers\User\MigrasiController;
-use App\Http\Controllers\User\TagihanUpdateLunas;
-use App\Http\Controllers\User\TagihanDestroy;
 use App\Http\Controllers\User\SiswaDestroy;
-use App\Http\Controllers\User\TagihanLainStep4Controller;
-use App\Http\Controllers\User\BankSekolahController;
-use App\Http\Controllers\User\BerandaUserController;
-use App\Http\Controllers\User\WaliSiswaController;
+use App\Http\Controllers\KartuSppController;
+use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\User\TagihanDestroy;
 use App\Http\Controllers\User\UserController;
 
-use App\Http\Controllers\WaliMurid\BerandaWaliController;
-use App\Http\Controllers\WaliMurid\WaliMuridSiswaController;
-use App\Http\Controllers\WaliMurid\WaliMuridProfilController;
-use App\Http\Controllers\WaliMurid\WaliMuridTagihanController;
-use App\Http\Controllers\WaliMurid\WaliMuridPembayaranController;
-
-use App\Http\Controllers\KepalaSekolah\LaporanFormController;
-use App\Http\Controllers\KepalaSekolah\LaporanPembayaranController;
-use App\Http\Controllers\KepalaSekolah\LaporanRekapPembayaran;
-use App\Http\Controllers\KepalaSekolah\LaporanTagihanController;
-use App\Http\Controllers\KepalaSekolah\LogActivityController;
-use App\Http\Controllers\KepalaSekolah\LogVisitorController;
+use App\Http\Controllers\User\WaliController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\User\BiayaController;
+use App\Http\Controllers\User\SiswaController;
+use App\Http\Controllers\User\StatusController;
+use App\Http\Controllers\User\MigrasiController;
+use App\Http\Controllers\User\TagihanController;
+use App\Http\Controllers\User\TagihanUpdateLunas;
+use App\Http\Controllers\User\JobStatusController;
+use App\Http\Controllers\User\WaliSiswaController;
+use App\Http\Controllers\WaliNotifikasiController;
+use App\Http\Controllers\User\PembayaranController;
+use App\Http\Controllers\User\BankSekolahController;
+use App\Http\Controllers\User\BerandaUserController;
+use App\Http\Controllers\PanduanPembayaranController;
+use App\Http\Controllers\KwitansiPembayaranController;
+use App\Http\Controllers\User\TagihanLainStepController;
 use App\Http\Controllers\KepalaSekolah\SettingController;
+
+use App\Http\Controllers\User\TagihanLainStep2Controller;
+use App\Http\Controllers\User\TagihanLainStep4Controller;
+use App\Http\Controllers\WaliMurid\BerandaWaliController;
+use App\Http\Controllers\KepalaSekolah\LogVisitorController;
+use App\Http\Controllers\Walikelas\WalikelasSiswaController;
+
+use App\Http\Controllers\WaliMurid\WaliMuridSiswaController;
+use App\Http\Controllers\KepalaSekolah\LaporanFormController;
+use App\Http\Controllers\KepalaSekolah\LogActivityController;
+use App\Http\Controllers\WaliMurid\WaliMuridProfilController;
+use App\Http\Controllers\KepalaSekolah\LaporanRekapPembayaran;
+use App\Http\Controllers\Walikelas\BerandaWalikelasController;
+use App\Http\Controllers\WaliMurid\WaliMuridTagihanController;
+use App\Http\Controllers\KepalaSekolah\LaporanTagihanController;
+use App\Http\Controllers\WaliMurid\WaliMuridPembayaranController;
 use App\Http\Controllers\KepalaSekolah\SettingWhacenterController;
+use App\Http\Controllers\KepalaSekolah\LaporanPembayaranController;
 
 Route::get('login/login-url', [LoginController::class, 'loginUrl'])->name('login.url');
 
@@ -98,6 +101,7 @@ Route::prefix('kepala_sekolah')->middleware(['auth', 'auth.kepalasekolah'])->nam
 Route::prefix('operator')->middleware(['auth', 'auth.operator', 'LogVisits'])->name('operator.')->group(function () {
     // USER
     Route::get('beranda', [BerandaUserController::class, 'index'])->name('beranda');
+    Route::resource('transaksi', TransaksiController::class);
     Route::resource('banksekolah', BankSekolahController::class);
     Route::resource('user', UserController::class);
     Route::resource('wali', WaliController::class);
@@ -123,9 +127,13 @@ Route::prefix('operator')->middleware(['auth', 'auth.operator', 'LogVisits'])->n
     // Route::post('siswaimport', SiswaImportController::class)->name('siswaimport.store');
 });
 
-Route::prefix('walikilas')->middleware(['auth', 'auth.walikelas', 'LogVisits'])->name('walikelas.')->group(function () {
-    // USER
+Route::prefix('walikelas')->middleware(['auth', 'auth.walikelas', 'LogVisits'])->name('walikelas.')->group(function () {
+    // Walikelas
     Route::get('beranda', [BerandaWalikelasController::class, 'index'])->name('beranda');
+    Route::resource('siswa',WalikelasSiswaController::class);
+    Route::resource('pembayaran', PembayaranController::class);
+    Route::post('siswadestory', SiswaDestroy::class)->name('siswadestory.ajax');
+    Route::get('status/update', [StatusController::class, 'update'])->name('status.update');
     
 });
 

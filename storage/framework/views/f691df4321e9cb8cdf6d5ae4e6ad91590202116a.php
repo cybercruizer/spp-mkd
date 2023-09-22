@@ -72,7 +72,7 @@
                                         <td><?php echo e($loop->iteration); ?></td>
                                         <td><?php echo e($item->siswa->nama); ?></td>
                                         <td><?php echo e($item->siswa->jurusan); ?></td>
-                                        <td><?php echo e($item->siswa->kelas); ?></td>
+                                        <td><?php echo e($item->siswa->kelas.' '.$item->siswa->relrombel->nama_rombel); ?></td>
                                         <td><?php echo e($item->tanggal_tagihan->translatedFormat('F Y')); ?></td>
                                         <td><?php echo e($item->biaya->nama); ?></td>
                                         <td>

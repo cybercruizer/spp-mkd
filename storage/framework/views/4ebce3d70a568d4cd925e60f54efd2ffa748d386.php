@@ -15,7 +15,7 @@
                                     <th>Kelas</th>
                                     <th>Angkatan</th>
                                     <th class="text-center">Kartu SPP</th>
-                                    <th class="text-end">Biaya Sekolah</th>
+                                    <th class="text-end">Biaya SPP</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -33,6 +33,7 @@
                                             <a href="<?php echo e(route('kartuspp.index', [
                                                 'siswa_id' => $item->id,
                                                 'tahun' => date('Y'),
+                                                'bulan' => date('m'),
                                             ])); ?>"
                                                 target="_blank">
                                                 <i class="bi bi-file-earmark-arrow-down"></i>

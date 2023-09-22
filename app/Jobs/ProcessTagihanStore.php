@@ -53,6 +53,7 @@ class ProcessTagihanStore implements ShouldQueue
         $tanggalTagihan = Carbon::parse($requestData['tanggal_tagihan']);
         $bulanTagihan = $tanggalTagihan->format('m');
         $tahunTagihan = $tanggalTagihan->format('Y');
+        $jenisTagihan = 'spp';
 
         if (isset($requestData['siswa_id']) && $requestData['siswa_id'] != null) {
             $siswa = $siswa->where('id', $requestData['siswa_id']);
@@ -67,8 +68,8 @@ class ProcessTagihanStore implements ShouldQueue
             $i++;
             $requestData['siswa_id'] = $itemSiswa->id;
             $requestData['biaya_id'] = $itemSiswa->biaya_id; //tambahan
-            $cekTagihan = $itemSiswa->tagihan->filter(function ($value) use ($bulanTagihan, $tahunTagihan) {
-                return $value->tanggal_tagihan->year == $tahunTagihan && $value->tanggal_tagihan->month == $bulanTagihan;
+            $cekTagihan = $itemSiswa->tagihan->filter(function ($value) use ($bulanTagihan, $tahunTagihan,$jenisTagihan) {
+                return $value->tanggal_tagihan->year == $tahunTagihan && $value->tanggal_tagihan->month == $bulanTagihan && $value->jenis == $jenisTagihan;
             })->first();
 
             if ($cekTagihan == null) {

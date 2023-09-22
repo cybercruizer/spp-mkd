@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Rombel;
 use Laravel\Sanctum\HasApiTokens;
 use Shetabit\Visitor\Traits\Visitor;
 use Illuminate\Notifications\Notifiable;
@@ -68,9 +69,9 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function kelas(): HasOne
+    public function rombel(): HasOne
     {
-        return $this->hasOne(Kelas::class, 'foreign_key', 'local_key');
+        return $this->hasOne(Rombel::class,'walikelas_id','id');
     }
 
     /**

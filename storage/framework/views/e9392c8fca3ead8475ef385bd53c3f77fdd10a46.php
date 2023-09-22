@@ -15,11 +15,11 @@ Mengetahui,
     <br>
 <?php endif; ?>
 <div>
-    <?php echo e(settings()->get('pj_nama')); ?>
+    <?php echo e(settings()->get('pj_jabatan')); ?>
 
 </div>
 <div>
-    <?php echo e(settings()->get('pj_jabatan')); ?>
+    <?php echo e(settings()->get('pj_nama')); ?>
 
 </div>
 <?php /**PATH /Users/anurkholis/Sites/spp-zepi/resources/views/components/informasi_pj.blade.php ENDPATH**/ ?>

@@ -175,7 +175,7 @@
         <?php if(auth()->user()->akses == 'operator' || auth()->user()->akses == 'kepala_sekolah'): ?>
             <div class="search-bar">
                 <?php echo Form::open([
-                    'route' => Request::segment(2)=='beranda' ? auth()->user()->akses . '.'.Request::segment(2) : auth()->user()->akses . '.'.Request::segment(2).'.index' ,
+                    'route' => Request::segment(2)=='beranda' ? auth()->user()->akses .'.'.Request::segment(2) : auth()->user()->akses . '.'.Request::segment(2).'.index' ,
                     'method' => 'GET',
                     'class' => 'search-form d-flex align-items-center',
                 ]); ?>
@@ -343,6 +343,8 @@
             <?php echo $__env->make('components.sidebar_operator', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <?php elseif(auth()->user()->akses == 'kepala_sekolah'): ?>
             <?php echo $__env->make('components.sidebar_kepala_sekolah', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php elseif(auth()->user()->akses == 'walikelas'): ?>
+            <?php echo $__env->make('components.sidebar_walikelas', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <?php else: ?>
             <?php echo $__env->make('components.sidebar_wali', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <?php endif; ?>

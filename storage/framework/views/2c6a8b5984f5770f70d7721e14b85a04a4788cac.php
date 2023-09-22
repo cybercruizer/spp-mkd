@@ -90,7 +90,7 @@ unset($__errorArgs, $__bag); ?>
                         </div>
 
                         <div class="credits" style="font-size: 12px;">
-                            Made By Zepi Darmawan T
+                            SMK Muh Mungkid 2023
                         </div>
 
                     </div>

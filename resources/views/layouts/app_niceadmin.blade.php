@@ -335,6 +335,8 @@
             @include('components.sidebar_operator')
         @elseif(auth()->user()->akses == 'kepala_sekolah')
             @include('components.sidebar_kepala_sekolah')
+        @elseif(auth()->user()->akses == 'walikelas')
+            @include('components.sidebar_walikelas')
         @else
             @include('components.sidebar_wali')
         @endif

@@ -33,19 +33,19 @@
                                 </tr>
                                 <tr>
                                     <td>Kelas</td>
-                                    <td>: {{ $model->kelas }}</td>
+                                    <td>: {{ $model->kelas.' '. $model->relrombel->nama_rombel }}</td>
                                 </tr>
                                 <tr>
                                     <td>Angkatan</td>
                                     <td>: {{ $model->angkatan }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Tgl Dibuat</td>
-                                    <td>: {{ $model->created_at->format('d/m/Y H:i') }}</td>
+                                    <td>Tgl dibuat</td>
+                                    <td>: {{ $model->created_at?->format('d/m/Y H:i') ?? '' }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Tgl Diubah</td>
-                                    <td>: {{ $model->updated_at->format('d/m/Y H:i') }}</td>
+                                    <td>Tgl diubah</td>
+                                    <td>: {{ $model->updated_at?->format('d/m/Y H:i') ?? '' }}</td>
                                 </tr>
                                 <tr>
                                     <td>Dibuat Oleh</td>
@@ -80,12 +80,13 @@
                                     </tr>
                                 @endforelse
                             </tbody>
-                            <tfoot>
+{{--                             <tfoot>
                                 <td colspan="2" class="text-center fw-bold">Total Tagihan</td>
                                 <td class="text-end fw-bold">
                                     {{ formatRupiah($model->biaya->children->sum('jumlah')) }}
                                 </td>
                             </tfoot>
+ --}}
                         </table>
                         <a href="{{ route('kartuspp.index', [
                             'siswa_id' => $model->id,

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Walikelas;
 
 use App\Models\Pembayaran;
 use App\Http\Controllers\Controller;

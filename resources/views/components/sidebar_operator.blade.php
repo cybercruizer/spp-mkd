@@ -1,12 +1,19 @@
 <ul class="sidebar-nav" id="sidebar-nav">
 
-    <li class="nav-heading">APP</li>
+    <li class="nav-heading">Shortcut</li>
 
     <li class="nav-item">
         <a class="nav-link {{ \Route::is('operator.beranda') ? '' : 'collapsed' }}"
             href="{{ route('operator.beranda') }}">
             <i class="bi bi-grid"></i>
             <span>Beranda</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {{ \Route::is('operator.transaksi.*') ? '' : 'collapsed' }}"
+            href="{{ route('operator.transaksi.index') }}">
+            <i class="bi bi-grid"></i>
+            <span>Transaksi</span>
         </a>
     </li>
 

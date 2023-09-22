@@ -67,7 +67,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->siswa->nama }}</td>
                                         <td>{{ $item->siswa->jurusan }}</td>
-                                        <td>{{ $item->siswa->kelas }}</td>
+                                        <td>{{ $item->siswa->kelas.' '.$item->siswa->relrombel->nama_rombel }}</td>
                                         <td>{{ $item->tanggal_tagihan->translatedFormat('F Y') }}</td>
                                         <td>{{ $item->biaya->nama }}</td>
                                         <td>

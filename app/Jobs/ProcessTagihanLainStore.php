@@ -68,7 +68,6 @@ class ProcessTagihanLainStore implements ShouldQueue
                     'jumlah_biaya' => $itemBiaya->jumlah,
                 ]);
             }
-            // }
         }
         DB::commit();
         $this->setOutput(['message' => 'Tagihan biaya lain ' . $biaya->nama . ' berhasil dibuat']);
