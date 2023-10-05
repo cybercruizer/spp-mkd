@@ -22,7 +22,6 @@ return new class extends Migration
             $table->enum('jenis_kelamin',['L','P']);
             $table->string('jurusan', 20);
             $table->tinyInteger('kelas');
-            $table->string('kelas', 10);
             $table->integer('angkatan');
             $table->enum('kategori',['REG','AP50','AP100'])->default('REG');
             $table->foreignId('user_id');
