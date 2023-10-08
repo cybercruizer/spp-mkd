@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('siswas', function (Blueprint $table) {
             $table->id();
             $table->integer('wali_id')->nullable()->index();
+            $table->integer('rombel_id')->nullable();
             $table->string('wali_status')->nullable();
             $table->string('nama', 255);
             $table->string('nisn', 20)->unique();
