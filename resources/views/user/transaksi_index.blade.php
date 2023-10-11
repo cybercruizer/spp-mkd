@@ -88,48 +88,14 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="alert d-none my-1" role="alert" id="alert-message"></div>
-                <h5 class="card-header fw-bold fs-5" style="color: #012970;">{{ $title }}</h5>
+                <h5 class="card-header fw-bold fs-5" style="color: #012970;">Transaksi Pembayaran</h5>
                 <div class="card-body">
                     <div class="row my-4">
                         <div class="col-md-12">
-                            {!! Form::open(['route' => $routePrefix . '.index', 'method' => 'GET']) !!}
-                            <div class="row justify-content-end gx-2">
-{{--                                 <div class="col-md-3 col-sm-12 my-3 my-md-0">
-                                    {!! Form::text('q', request('q'), ['class' => 'form-control', 'placeholder' => 'Pencarian Data Siswa']) !!}
-                                </div>
- --}}
-                                <div class="col-md-2 col-sm-12 mb-3 mb-md-0">
-                                    {!! Form::select(
-                                        'status',
-                                        [
-                                            'lunas' => 'Lunas',
-                                            'baru' => 'Baru',
-                                            'angsur' => 'Angsur',
-                                        ],
-                                        request('status'),
-                                        ['class' => 'form-select', 'placeholder' => 'pilih status'],
-                                    ) !!}
-                                </div>
-
-                                <div class="col-md-2 col-sm-12 mb-3 mb-md-0">
-                                    {!! Form::select('biaya_id', $biayaList, request('biaya_id'), [
-                                        'class' => 'form-select',
-                                        'placeholder' => 'Pilih biaya',
-                                    ]) !!}
-                                </div>
-                                <div class="col-md-2 col-sm-12 mb-3 mb-md-0">
-                                    {!! Form::selectMonth('bulan', request('bulan'), ['class' => 'form-control', 'placeholder' => 'Pilih Bulan']) !!}
-                                </div>
-                                <div class="col-md-1 col-sm-12 mb-3 mb-md-0">
-                                    {!! Form::selectRange('tahun', date('Y') - 3, date('Y') + 1, request('tahun') ?? date('Y'), [
-                                        'class' => 'form-control',
-                                    ]) !!}
-                                </div>
-                                <div class="col">
-                                    <button class="btn btn-primary" type="submit">Tampil</button>
-                                </div>
+                            <div class="d-inline">
+                                {!! Form::select('siswa_id', $siswa->pluck('nama', 'id'), null, ['class' => 'form-select select2']) !!}
+                                {!! Form::submit('cari', ['class' => 'btn btn-primary']) !!}
                             </div>
-                            {!! Form::close() !!}
                         </div>
                     </div>
                     <button type="button" id="btn-lunas" class="btn btn-success btn-sm mb-3">Ubah menjadi lunas</button>
