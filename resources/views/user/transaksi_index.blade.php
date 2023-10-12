@@ -90,73 +90,18 @@
                 <div class="alert d-none my-1" role="alert" id="alert-message"></div>
                 <h5 class="card-header fw-bold fs-5" style="color: #012970;">Transaksi Pembayaran</h5>
                 <div class="card-body">
+                    {!! Form::open(['route' => 'user.transaksi.show', 'method' => 'GET']) !!}
+                    <div class="row my-4">                  
+                        <div class="col-md-12">
+                            {!! Form::select('siswa_id', $siswa->pluck('nama', 'id'), null, ['class' => 'form-select select2']) !!}
+                        </div>
+                    </div>
                     <div class="row my-4">
                         <div class="col-md-12">
-                            <div class="d-inline">
-                                {!! Form::select('siswa_id', $siswa->pluck('nama', 'id'), null, ['class' => 'form-select select2']) !!}
-                                {!! Form::submit('cari', ['class' => 'btn btn-primary']) !!}
-                            </div>
+                            {!! Form::submit('cari', ['class' => 'btn btn-primary btn-block']) !!}
                         </div>
                     </div>
-                    <button type="button" id="btn-lunas" class="btn btn-success btn-sm mb-3">Ubah menjadi lunas</button>
-                    <button type="button" id="btn-hapus" class="btn btn-danger btn-sm mb-3">Hapus</button>
-                    <div class="table-responsive">
-                        <table class="{{ config('app.table_style') }}">
-                            <thead class="{{ config('app.thead_style') }}">
-                                <tr>
-                                    <th width="1%;">
-                                        <input type="checkbox" id="checked-all">
-                                    </th>
-                                    <th>Nama</th>
-                                    <th>Tgl Dibuat</th>
-                                    <th width="1%;">Status</th>
-                                    <th width="10%;">Jenis</th>
-                                    <th>Total</th>
-                                    <th class="text-center">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse ($models as $item)
-                                    <tr valign="middle">
-                                        <td>{!! Form::checkbox('tagihan_id[]', $item->id, null, ['class' => 'check-tagihan-id']) !!}</td>
-                                        <td>{{ $item->siswa->nama }} ({{ $item->siswa->nisn }})</td>
-                                        <td>{{ $item->tanggal_tagihan->translatedFormat('d-M-Y') }}</td>
-                                        <td>
-                                            <span class="badge rounded-pill bg-{{ $item->status_style }}">
-                                                {{ $item->status == 'baru' ? 'Belum bayar' : $item->status }}
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span
-                                                class="badge rounded bg-{{ $item->jenis == 'spp' ? 'primary' : 'success' }}">
-                                                {{ $item->jenis }}
-                                            </span>
-                                        </td>
-                                        <td>{{ formatRupiah($item->tagihanDetails->sum('jumlah_biaya')) }}</td>
-                                        <td class="text-center">
-                                            <a href="{{ route($routePrefix . '.show', [
-                                                $item->id,
-                                                'siswa_id' => $item->siswa_id,
-                                                'bulan' => $item->tanggal_tagihan->format('m'),
-                                                'tahun' => $item->tanggal_tagihan->format('Y'),
-                                            ]) }}"
-                                                class="btn btn-sm btn-info mx-2 mb-1 mb-md-0">
-                                                <i class="bi bi-info-circle d-md-inline d-none"></i>
-                                                Detail
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="8" class="text-center fw-bold">Tidak ada data</td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
-                        <div class="mt-3">
-                            {!! $models->links() !!}
-                        </div>
-                    </div>
+                    b:{!! Form::close() !!}
                 </div>
             </div>
         </div>

@@ -28,7 +28,7 @@
                 <div class="card-body">
                     <div class="row my-3">
                         <div class="col-md-12">
-                            {!! Form::open(['route' => auth()->user()->akses . '.pembayaran.index', 'method' => 'GET']) !!}
+                            {!! Form::open(['route' => 'user.pembayaran.show', 'method' => 'GET']) !!}
                             <div class="row justify-content-end">
 {{--                           <div class="col-md-4 col-sm-12 mb-3 mb-md-0">
                                     {!! Form::text('q', request('q'), ['class' => 'form-control', 'placeholder' => 'Pencarian Data Siswa']) !!}

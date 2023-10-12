@@ -15,8 +15,8 @@ class TransaksiController extends Controller
     public function index()
     {
         $siswa= Siswa::select('id','nama','nisn')->get();
-        dd($siswa);
-        return view('user.transaksi_index',$siswa);
+        //dd($siswa);
+        return view('user.transaksi_index')->with('siswa',$siswa);
     }
 
     /**
